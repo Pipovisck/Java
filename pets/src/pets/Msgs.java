@@ -17,6 +17,6 @@ public class Msgs {
                                       +"\nTotal Comida: "+totalDog
                                       +"\nGATO\n "+pets.gato.toString()
                                       +"\nEstadia: "+pets.getEstadCat()
-                                      +"\nTotal Comida: "+totalCat);
+                                      +"\nTotal Comida: "+totalCat,"Dados",JOptionPane.INFORMATION_MESSAGE);
     }
 }
