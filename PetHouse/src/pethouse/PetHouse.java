@@ -5,6 +5,7 @@
 package pethouse;
 
 import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -33,7 +34,8 @@ public class PetHouse {
         
         pets PetHouse=new pets("Caes e Cia",poodle,Vira,Alemao);
         Dog.setRacao(Double.parseDouble(JOptionPane.showInputDialog(null,"Insira a Quantidade de Racao Total:","Racao",JOptionPane.QUESTION_MESSAGE)));
-        JOptionPane.showMessageDialog(null,"Raçao restante na "+PetHouse.getNome()+" : "+PetHouse.calcRacao()+"kg","Racao",JOptionPane.INFORMATION_MESSAGE);
+        DecimalFormat df = new DecimalFormat("#.###");
+        JOptionPane.showMessageDialog(null,"Raçao restante na "+PetHouse.getNome()+" : "+df.format(PetHouse.PassarDias())+"kg","Racao",JOptionPane.INFORMATION_MESSAGE);
         
     }
 }

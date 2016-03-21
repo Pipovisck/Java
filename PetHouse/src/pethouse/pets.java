@@ -69,7 +69,7 @@ public class pets {
     public void setAlemao(Dog Alemao) {
         this.Alemao = Alemao;
     }
-    public double calcRacao(){
+    public double PassarDias(){
        for(int i=0;i<dias;i++){
            poodle.Comer();
            Vira.Comer();
