@@ -5,7 +5,6 @@
  */
 package figuras;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -15,9 +14,7 @@ import java.util.Date;
 public class FiguraGeometrica {
     protected String cor;
     protected boolean preenche;
-    //protected java.util.Date dataCriacao;
-    Date dataCriacao = new Date();
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");   
+    protected Date dataCriacao;
     
     public FiguraGeometrica(){
         
@@ -40,7 +37,7 @@ public class FiguraGeometrica {
     }
 
     public java.util.Date getData(){
-        dataCriacao.toString();
+        dataCriacao = new Date();
         return dataCriacao;
     }
 

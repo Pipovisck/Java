@@ -24,13 +24,14 @@ public class Figuras extends JFrame {
         Circulo c = new Circulo();
         Retangulo r= new Retangulo();
         
-        c.setRaio(Double.parseDouble(JOptionPane.showInputDialog(null,"Insira raio: ")));
-        r.setAltura(Double.parseDouble(JOptionPane.showInputDialog(null,"Insira altura do retangulo: ")));
-        r.setLargura(Double.parseDouble(JOptionPane.showInputDialog(null,"Insira altura do retangulo: ")));
+        c.setRaio(Double.parseDouble(JOptionPane.showInputDialog(null,"Insira raio:","Circulo",JOptionPane.QUESTION_MESSAGE)));
+        r.setAltura(Double.parseDouble(JOptionPane.showInputDialog(null,"Insira altura do retangulo: ","Retangulo",JOptionPane.QUESTION_MESSAGE)));
+        r.setLargura(Double.parseDouble(JOptionPane.showInputDialog(null,"Insira altura do retangulo: ","Retangulo",JOptionPane.QUESTION_MESSAGE)));
         
-        texto.append("DATA/HORA ATUAL: "+r.getData()+"\n\nRETANGULO: \nArea: "+dc.format(r.getArea())+"cm²\nPerimetro: "
-                     +r.getPerimetro()+" cm" + "\n\nCIRCULO: \nArea: "+dc.format(c.getArea())
-                     +"cm²\nPerimetro: "+dc.format(c.getPerimetro())+" cm");
+        texto.append("RETANGULO: \nArea: "+dc.format(r.getArea())+"cm²\nPerimetro: "
+                     +r.getPerimetro()+" cm" +"\nData/Hora Criação: "+r.getData()+ 
+                    "\n\nCIRCULO: \nArea: "+dc.format(c.getArea())
+                     +"cm²\nPerimetro: "+dc.format(c.getPerimetro())+" cm\nData/Hora Criação: " +c.getData());
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         texto.setEditable(false);
         frame.add(texto);

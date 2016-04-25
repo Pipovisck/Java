@@ -5,8 +5,6 @@
  */
 package figuras;
 
-import java.lang.Math;
-
 /**
  *
  * @author GABRIEL HADDAD
