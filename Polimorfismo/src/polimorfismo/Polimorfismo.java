@@ -14,16 +14,21 @@ import javax.swing.JOptionPane;
 public class Polimorfismo {
 
     public static void main(String[] args) {
-      Passageiro p[] = new Passageiro[5];
-      Passagem pas = new Passagem(666,1000,777,50);
-      for (int j=0; j<p.length; j++){
-          p[j]=new Passageiro();
-          p[j].setId(j);
-          p[j].setP(pas);
-          JOptionPane.showMessageDialog(null,p[j].toString(),"Passagem",JOptionPane.INFORMATION_MESSAGE);
+      Voo voo[] = new Voo[3];
+      int nVoo;
+      String tipo;
+      double preco;
+      int id;
+      for(int i=0; i<voo.length; i++){
+          nVoo= Integer.parseInt(JOptionPane.showInputDialog(null,"Insira o nº do voo: ","Voo "+i,JOptionPane.QUESTION_MESSAGE));
+          tipo = JOptionPane.showInputDialog(null,"Insira o tipo do voo","Voo "+i,JOptionPane.QUESTION_MESSAGE);
+          preco = Integer.parseInt(JOptionPane.showInputDialog(null,"Insira preço da passagem: ","Voo "+i,JOptionPane.QUESTION_MESSAGE));
+          id = Integer.parseInt(JOptionPane.showInputDialog(null,"Insira Identidade: ","Passageiro",JOptionPane.QUESTION_MESSAGE));
+          voo[i]= new Passagem(preco,nVoo,tipo,id);
       }
-      
-      
+        for (Voo voo1 : voo) {
+            JOptionPane.showMessageDialog(null, voo1.toString(), "Passagem", JOptionPane.INFORMATION_MESSAGE);
+        } 
     }
     
 }

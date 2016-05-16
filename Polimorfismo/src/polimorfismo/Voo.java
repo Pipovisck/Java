@@ -9,36 +9,33 @@ package polimorfismo;
  *
  * @author GABRIEL HADDAD
  */
-public class Voo{
+public abstract class Voo{
     protected int nVoo;
-    protected int capacidade;
+    protected String tipo;
+    
     
     public Voo(){        
     }
     
-    public Voo(int nVoo,int capacidade){
+    public Voo(int nVoo,String tipo){
         this.nVoo=nVoo;
-        this.capacidade=capacidade;
+        this.tipo=tipo;
     }
 
-    public int getCapacidade() {
-        return capacidade;
+    public abstract int getnVoo();
+
+    public abstract void setnVoo(int nVoo);
+
+    public String getTipo(){
+        return tipo;
     }
 
-    public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
+    public  void setTipo(String tipo){
+        this.tipo=tipo;
     }
-
-    public int getnVoo() {
-        return nVoo;
-    }
-
-    public void setnVoo(int nVoo) {
-        this.nVoo = nVoo;
-    }
-    
+   
     public String toString(){
-        return "\nNº voo: "+nVoo +"\nCapacidade: "+capacidade;
+        return "\nNº voo: "+nVoo + "\nTipo vôo: " + tipo;
     }
     
     

@@ -10,37 +10,53 @@ package polimorfismo;
  * @author GABRIEL HADDAD
  */
 public class Passagem extends Voo{
-    protected int code;
-    protected int preco;
+    private double preco;
+    private int id;    
 
-    public Passagem(int code, int preco, int nVoo, int capacidade) {
-        super(nVoo, capacidade);
-        this.code = code;
+    public Passagem(double preco, int nVoo, String tipo, int id) {
+        super(nVoo, tipo);
         this.preco = preco;
+        this.id = id;
     }
     
     public Passagem(){
         
     }
 
-    public int getCode() {
-        return code;
+    public int getId() {
+        return id;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getnVoo() {
+        return nVoo;
     }
 
-    public int getPreco() {
+    public void setnVoo(int nVoo) {
+        this.nVoo = nVoo;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }   
+
+    public double getPreco() {
         return preco;
     }
 
     public void setPreco(int preco) {
         this.preco = preco;
-    }
+    }    
     
     public String toString(){
-        return super.toString()+"\nCodigo: "+ code + "\nPreco: "+ preco;
+        return super.toString()+ "\nPreco: "+ preco + "\nIdentidade: "+id;
     }
     
            
