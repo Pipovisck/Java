@@ -9,7 +9,7 @@ package informatica;
  *
  * @author GABRIEL HADDAD
  */
-public class Info implements Produtos{
+public abstract class Info implements Produtos{
     protected String marca;
     protected double preco;
     protected int quant;

@@ -14,45 +14,61 @@ import javax.swing.JOptionPane;
 public class Informatica {
 
     public static void main(String[] args) {
-        Info inf[] = new Info[3];
-        String marca;
-        int quant;
-        double preco;
-        String aux;
-        
-        //definindo celulares
-        
-        marca= JOptionPane.showInputDialog(null,"Insira marca do celular: ");
-        quant= Integer.parseInt(JOptionPane.showInputDialog(null,"Insira quantidade de celulares em estoque: "));
-        preco= Double.parseDouble(JOptionPane.showInputDialog(null,"Insira preço do celular:"));
-        aux = JOptionPane.showInputDialog(null,"Insira modelo do Celular: ");
-        inf[0]= new Celular(marca, quant, preco, aux);
-        
-        //definindo Impressoras
-        
-        marca= JOptionPane.showInputDialog(null,"Insira marca da imnpressora: ");
-        quant= Integer.parseInt(JOptionPane.showInputDialog(null,"Insira quantidade de impressoras em estoque: "));
-        preco= Double.parseDouble(JOptionPane.showInputDialog(null,"Insira preço da impressora:"));
-        aux = JOptionPane.showInputDialog(null,"Insira tipo da impressora: ");
-        inf[1]= new Celular(marca,quant,preco,aux);
-        
-        //definindo Computadores
-
-        marca= JOptionPane.showInputDialog(null,"Insira marca do computador: ");
-        quant= Integer.parseInt(JOptionPane.showInputDialog(null,"Insira quantidade de computadores em estoque: "));
-        preco= Double.parseDouble(JOptionPane.showInputDialog(null,"Insira preço do computador:"));
-        aux = JOptionPane.showInputDialog(null,"Insira memória do Computador: ");
-        inf[2]= new Computador(marca,quant,preco,aux);
+        int x=0, vendidos=0;
+        Produtos pro[] = new Produtos[3];
+        Celular cel = new Celular ("Apple",2,2000,"Iphone 5");        
+        pro[0]= cel;
+        Impressora imp = new Impressora ("HP", 100, 500,"Laser");
+        pro[1]= imp;
+        Computador pc = new Computador ("Dell",500,3000,"16GB");
+        pro[2]=pc; //polimorfismo
        
-        for(int i=0; i<inf.length; i++){
-            JOptionPane.showMessageDialog(null,inf[i].toString()+"\n");
+        for(int i=0; i<pro.length; i++){
+            JOptionPane.showMessageDialog(null,pro[i].toString()+"\n");
         }
         
-        for (Info inf1 : inf) {
-            JOptionPane.showMessageDialog(null,"Vendendo um produto de "+ inf1.getClass()+ "\nEm Estoque:" + inf1.estoque());
-            inf1.venda();
-            JOptionPane.showMessageDialog(null, "Em Estoque:" + inf1.estoque());
+        while(x==0){
+            int y=Integer.parseInt(JOptionPane.showInputDialog(null,"O que deseja vender ?"
+                   + "\n1-Celular"
+                   +"\n2- Impressora"
+                   + "\n3-Computador"
+                   + "\n4-Encerrar vendas")); // máquina do capitalismoooo
+            
+            switch(y){
+                case 1:
+                    if(pro[0].estoque()>0){ //checar se possui estoque para vender
+                        pro[0].venda();
+                        vendidos++;
+                    }
+                    else
+                        JOptionPane.showMessageDialog(null, "Estamos sem estoque :( ");
+                    break;
+                case 2:
+                    if(pro[1].estoque()>0){
+                      pro[1].venda();
+                        vendidos++;
+                    }
+                     else
+                        JOptionPane.showMessageDialog(null, "Estamos sem estoque :( ");
+                    break;
+                case 3:
+                    if(pro[2].estoque()>0){
+                       pro[2].venda();
+                       vendidos++;
+                    }
+                     else
+                        JOptionPane.showMessageDialog(null, "Estamos sem estoque :( ");
+                    break;
+                case 4:
+                    x=1;
+                    break;                
+            }
         }
+        
+       for (int j=0; j<pro.length; j++) {
+            JOptionPane.showMessageDialog(null,pro[j].getClass()+ "\nEm Estoque:" + pro[j].estoque());
+        }
+       JOptionPane.showMessageDialog(null,"Total de Vendas: "+vendidos,"Produtos Vendidos",JOptionPane.INFORMATION_MESSAGE);
     }
     
 }
